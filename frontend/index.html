@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steven Hawking's stamp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
 
+<body>
+    <div class="layout">
+
+    <div class="header">
+        <header>Steven Hawking</header>
+    </div>
+
+    <div class="topnav">
+        <a href="/biography"  onclick="side_menu()" data-link>Βιογραφια</a>
+        <a href="/works" onclick="side_menu1()" data-link>Εργα</a>
+        <a href="/photos" onclick="side_menu2()" data-link>Φωτογραφιες</a>
+        <a href="/links" onclick="side_menu3()" data-link>Συνδεσμοι</a>
+        <a href="/Settings" onclick="side_menu4()" data-link>Διαχειρηση</a>
+    </div>
+
+    <div class="sidenav">
+        <div id="biography">
+            <a href="#bio-general">General</a>
+            <a href="#bio-career">Work</a>
+            <a href="#bio-awards">Awards</a>
+        </div>
+        <div id="works">
+            <a href="/works" onclick="requestData_works('/static/js/json/works.json')" data-link>Stephen Hawking's Books</a>
+            <a href="/works" onclick="requestData1_works('/static/js/json/theories.json')" data-link>Stephen Hawking's Theories</a>
+          </div>
+        <div id="photos">
+            <a href="#photo-life">Life Photos</a>
+            <a href="#photo-books">Book photos</a>
+            <a href="#photo-career">Career photos</a>
+        </div>
+        <div id="links">
+          <a href="/links" onclick="requestData_links('/static/js/json/links1.json')" data-link>Links About Author</a>
+          <a href="/links" onclick="requestData_links('/static/js/json/links2.json')" data-link>Buy the Books</a>
+        </div>
+        <div id="settings">
+          <a href="/login">Σύνδεση</a>
+          <a href="/disconnect">Αποσύνδεση</a>
+        </div>
+    </div>
+    
+    <div id="main"></div>
+
+    <div class="footer"><p>email: vaggeliskaravas@gmail.com | Contact information: 6987654321 | Legal Terms |  Privacy Policy©  |  Cookie Policy </p></div>
+
+<script>
+    function hide_link_bar(menuCont) {
+        var dropdowns = document.getElementById(menuCont);
+        var i;
+        dropdowns.style.display = "none";
+    }
+</script>
+<script>
+    function side_menu() {
+        var i =0;
+        var x = document.getElementById("biography");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      hide_link_bar("works");
+      hide_link_bar("photos");
+      hide_link_bar("settings");
+      hide_link_bar("links");
+
+    }
+</script>
+<script>
+    function side_menu1() {
+      var x = document.getElementById("works");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      hide_link_bar("biography");
+      hide_link_bar("photos");
+      hide_link_bar("settings");
+      hide_link_bar("links");
+
+    }
+</script>
+<script>
+    function side_menu2() {
+      var x = document.getElementById("photos");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      hide_link_bar("works");
+      hide_link_bar("biography");
+      hide_link_bar("settings");
+      hide_link_bar("links");
+
+    }
+</script>
+<script>
+  function side_menu3() {
+    var x = document.getElementById("links");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+    hide_link_bar("works");
+    hide_link_bar("photos");
+    hide_link_bar("biography");
+    hide_link_bar("settings");
+  }
+</script>
+<script>
+    function side_menu4() {
+      var x = document.getElementById("settings");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      hide_link_bar("works");
+      hide_link_bar("photos");
+      hide_link_bar("biography");
+      hide_link_bar("links");
+      
+    }
+</script>
+
+
+<script>
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("opensidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+</script>
+
+<script>
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("opensidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  } 
+</script>
+
+
+
+<script type="module" src="/static/js/index.js"></script>
+<script src = "/static/js/fetch_functions/theories.js"></script>
+<script src = "/static/js/fetch_functions/f_links.js"></script>
+<script src = "/static/js/fetch_functions/FetchFunction.js"></script>
+
+</body>
+</html>
